@@ -3,9 +3,10 @@
   "compilerOptions": {
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "jsx": "react",
-    "types": ["jest"]
+    "lib": ["es2017"],
+    "jsx": "react-native",
+    "types": ["jest", "react", "react-native"]
   },
-  "include": ["**/*.ts", "**/*.tsx"],
+  "include": ["**/*.ts", "**/*.tsx", "src", "declarations.d.ts"],
   "exclude": ["**/node_modules", "**/Pods"]
 }

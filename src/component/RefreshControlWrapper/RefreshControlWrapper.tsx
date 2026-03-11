@@ -1,5 +1,5 @@
 import React from 'react';
-import { RefreshControl, RefreshControlProps, StyleSheet } from 'react-native';
+import { RefreshControl, RefreshControlProps } from 'react-native';
 import { RefreshControlStyles } from './RefreshControlWrapper.styles';
 
 

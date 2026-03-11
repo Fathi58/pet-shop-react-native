@@ -1,6 +1,5 @@
 import React from 'react';
-import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
-import { scale } from 'react-native-size-matters';
+import { View, Text, Image, TouchableOpacity } from 'react-native';
 import { Pet } from '../../redux/petSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { addToCart } from '../../redux/cartSlice';
@@ -15,7 +14,7 @@ const CustomCard: React.FC<PetCardProps> = ({ pet }) => {
   const dispatch = useDispatch();
 const styles = CustomCardStyles;
   const cartItems = useSelector((state: RootState) => state.cart.items);
-  const isAdded = cartItems.some(item => item.id === pet.id);
+  const isAdded = cartItems.some((item: { id: string; }) => item.id === pet.id);
 
   const handleAddToCart = () => {
     if (!isAdded) {

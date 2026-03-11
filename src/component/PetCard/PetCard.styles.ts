@@ -1,6 +1,4 @@
 import { StyleSheet } from 'react-native';
-import { windowHeight, windowWidth } from '../../constants/constants';
-import { scale } from 'react-native-size-matters';
 
 export const PetCardStyles = StyleSheet.create({
 container:{

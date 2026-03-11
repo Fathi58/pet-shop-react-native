@@ -1,20 +1,16 @@
 // ---------- Imports ---------- //
 import React from 'react';
 import {
-  Platform,
-  StyleSheet,
   Text,
   View,
   StyleProp,
   ViewStyle,
   TextStyle,
   ImageStyle,
-  Dimensions,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { scale } from 'react-native-size-matters';
 import { TopBarStyles } from './TopBar.styles';
-const windowWidth = Dimensions.get('window').width;
 // ---------- Props Interface ---------- //
 interface TopbarProps {
   title?: string;

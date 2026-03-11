@@ -5,8 +5,8 @@ import {
   Text,
   View
 } from 'react-native';
-import Modal from 'react-native-modal';
 import { LoaderStyles } from './Loader.styles';
+import Modal from 'react-native-modal';
 
 
 // ---------- Props Interface ---------- //
