@@ -4,7 +4,6 @@ import {
   Text,
   TextInput,
   Image,
-  StyleSheet,
   TouchableOpacity,
   Platform,
   ToastAndroid,
@@ -18,8 +17,9 @@ import Topbar from '../../component/TopBar/TopBar';
 import { submitPet } from '../../api/api';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { MainTabParamList } from '../../navigation/types';
-import { scale } from 'react-native-size-matters';
 import { AddPetScreenStyles } from './AddPetScreen.styles';
+import { useDispatch } from 'react-redux';
+import { addPet } from '../../redux/petSlice';
 
 type AddPetScreenNavigationProp = NativeStackNavigationProp<
   MainTabParamList,
@@ -48,6 +48,7 @@ const schema = yup.object().shape({
 });
 
 const AddPetScreen: React.FC<Props> = ({ navigation }) => {
+  const dispatch = useDispatch();
   const styles=AddPetScreenStyles;
   const [image, setImage] = useState<string | null>(null);
 
@@ -79,7 +80,15 @@ const onSubmit = async (data: FormData) => {
   try {
     const payload = { ...data, image };
     await submitPet(payload);
-
+    const newPet = {
+      id: Date.now().toString(),
+      name: data.name,
+      breed: data.breed,
+      age: data.age,
+      price: data.price,
+      image: image,
+    };
+    dispatch(addPet(newPet));
     if (Platform.OS === 'android') {
       ToastAndroid.show('New pet details added!', ToastAndroid.SHORT);
     } else {
@@ -88,7 +97,7 @@ const onSubmit = async (data: FormData) => {
 
     reset();
     setImage(null);
-
+     
     navigation.navigate('Pets');
   } catch (err) {
     console.log('Error submitting pet', err);

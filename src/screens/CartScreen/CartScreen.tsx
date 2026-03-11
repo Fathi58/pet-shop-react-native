@@ -36,7 +36,6 @@ const CartScreen: React.FC<Props> = ({ navigation }) => {
       <Text>{item.name}</Text>
       <Text>{item.breed}</Text>
       <Text>₹{item.price}</Text>
-
       <Button
         title="Remove"
         onPress={() => dispatch(removeFromCart(item.id))}
